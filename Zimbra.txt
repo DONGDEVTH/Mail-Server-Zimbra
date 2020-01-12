@@ -1,0 +1,25 @@
+https://files.zimbra.com/downloads/8.6.0_GA/zcs-8.6.0_GA_1153.UBUNTU14_64.20141215151116.tgz
+
+Install Package Zimbra
+apt-get install libgmp-dev libidn11 wget nano make netcat sudo sysstat libtool libltdl7-dev build-essential libc6 perl ntp libperl-dev libidn11-dev sysstat sqlite3 wget libaio1 resolvconf unzip pax netcat-openbsd dnsmasq –y
+
+Setup IP address Ubuntu
+auto eth0
+iface eth0 inet static
+address 192.168.1.9
+netmask 255.255.255.0
+network 192.168.1.0
+gateway 192.168.1.1
+
+DNS Server 
+vi /etc/dnsmasq.conf
+server=192.168.1.9
+domain=home.local
+mx-host=home.local, mail.home.local, 5
+listen-address=127.0.0.1
+
+su - zimbra
+zmcontrol status
+
+admin page
+https://192.168.1.9:7071
